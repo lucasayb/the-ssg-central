@@ -1,20 +1,21 @@
 ---
-title: "Decap CMS with Hugo in Netlify"
-description: "Let's integrate the Open Source CMS with Hugo with just a few tips"
+license: null
+title: Decap CMS with Hugo in Netlify
+description: Let's integrate the Open Source CMS with Hugo with just a few tips
 date: 2024-02-05T17:15:30-03:00
-image: 
-math: 
-license: 
-hidden: false
+image: null
 comments: true
 draft: true
+math: null
+hidden: false
+weight: 0
 ---
-
 Before anything, I'm assuming that you have the following stack:
-- Hugo extended ~>0.113.0
-- Github as the cloud-based Git repository manager
-- Your site deployed into Netlify
-- A little bit of experience with Git
+
+* Hugo extended ~>0.113.0
+* Github as the cloud-based Git repository manager
+* Your site deployed into Netlify
+* A little bit of experience with Git
 
 ## 1. Create a `config.yml` file into the `static/admin` folder.
 
@@ -48,6 +49,7 @@ collections:
 ```
 
 Let's see what it's happening in this code:
+
 ```yaml
 backend:
   name: github
@@ -55,7 +57,9 @@ backend:
   branch: main
   site_domain: thessgcentral.com
 ```
+
 We need to define where the content of the website is coming from.
+
 * The `name` must be `github` if you, as me, are using Github
 * The `repo` must be the user or organization and the name of your repository
 * The `branch` is the `main` becaue generally is where we store the content that reflects exactly what we have in production, but it can be any other branch that you prefer. Keep in mind that there are a few themes that still creates the branch as `master`. This is not a good practice, but still happens. Change it in the way it suits your case.
@@ -67,6 +71,7 @@ That's way we define that we handling with Git and
 media_folder: "static/uploads" # Adjust based on your media storage location
 public_folder: "/uploads" # URL path for accessing media
 ```
+
 With Decap CMS, we can upload media. the `media_folder` is where the Decap CMS is going to send these media. The `public_folder` is the URL that is used to access these media. If you change any of those folders, you should change both for the same name. For example: 
 
 ```yaml
@@ -90,6 +95,7 @@ collections:
       - { label: "Comments", name: "comments", widget: "boolean", default: true }
       - { label: "Draft", name: "draft", widget: "boolean", default: false }
       - { label: "Weight", name: "weight", widget: "number" }
+      - { label: "Body", name: "body", widget: "markdown" }
 ```
 
 This is where things get trick. A collection is basically the folder where you store your posts. Here you can have the collections based on  your needs. But I'm going to exemplify using the `posts` collection
@@ -97,26 +103,31 @@ This is where things get trick. A collection is basically the folder where you s
 ```yaml
   - name: "posts" # This is the name used in the URL
 ```
+
 The name `posts` is the URL that is going to be displayed into the CMS.
 
 ```yaml
     label: "Post" # This is the singular name of the content type for the UI
 ```
+
 In the UI, every element that refers to a post, is going to have the label that you define in here.
 
 ```yaml
     folder: "content/post" # The folder where your posts markdown files will be saved
 ```
+
 By default, a post in Hugo is stored in the `content/posts` folder. In my case, I'll use the `content/post` because it is the way my theme handles it.
 
 ```yaml
     create: true # Allows users to create new documents in this collection
 ```
+
 Keep this option as `true`. This tells the CMS that a user can create a post using the CMS, otherwise you would be able only to edit or view the posts.
 
 ```yaml
     slug: "{{year}}-{{month}}-{{day}}-{{slug}}" # Filename template for new posts
 ```
+
 As Hugo is based on files, the filename has a great importante into how your data is stored and how they are viewed in the public perspective. In this line, we are telling to Decap CMS how we want it to create the file name of each of our posts. But I'll recommend for you to keep in the way above, because this way works fine.
 
 ```yaml
@@ -129,6 +140,7 @@ As Hugo is based on files, the filename has a great importante into how your dat
       - { label: "Comments", name: "comments", widget: "boolean", default: true }
       - { label: "Draft", name: "draft", widget: "boolean", default: true }
       - { label: "Weight", name: "weight", widget: "number" }
+      - { label: "Body", name: "body", widget: "markdown" }
 ```
 
 Here we have all the fields that comes by default with Hugo whenever we create a new post with `hugo new content` command. Feel free to change the way you prefer. For example if you don't want to show the Draft field and wants it to always to come marked as `true`, you can change the draft field to the following:
@@ -142,6 +154,7 @@ This will not show the field in the CMS and every time that you create a new pos
 ## 2. Creating the `index.html` file into the `static/admin` folder.
 
 This step if pretty straightforward. All you need to do is to create the file as mentioned and place the following content:
+
 ```html
 <!doctype html>
 <html>
@@ -157,11 +170,13 @@ This step if pretty straightforward. All you need to do is to create the file as
 </body>
 </html>
 ```
+
 That's basically it. Now, there are possible customizations that can be done into this file, like creating custom elements into the dashboard and modifying the previews, but I'm not going to cover them in this post.
 
 ## 3. Deployment of these files
 
 After all that, you can just commit both of this files and push it to your repository. You can either use the Ui for that or the command line:
+
 ```bash
 $ git add .
 $ git commit -m 'adds files to install Decap CMS'
@@ -187,11 +202,12 @@ The great is that this error tells exactly what you got do.
 ![decap-cms-auth-screen](/uploads/github-developer-settings-oauth-settings.png)
 
 3. Give a name to your app (it can be your site name), put URL of your site and in the Authorization Callback URL, put the following:
+
 ```
 https://api.netlify.com/auth/done
 ```
-4. Generate a new app secret and store it safely with the clientId of your app. We will use both later.
 
+4. Generate a new app secret and store it safely with the clientId of your app. We will use both later.
 5. Now you need to access your Netlify panel and go to **Sites**. Select your site and go to **Site Configuration**.
 
 ![decap-cms-auth-screen](/uploads/decap-cms-fix-auth-error-1.jpg)
@@ -202,5 +218,9 @@ https://api.netlify.com/auth/done
 
 7. Fill both of the fields with the data that we generated on Github
 
+Now, if you try to log in again, you will be able to go to the main page of the Decap CMS and see all of your posts, if you already have any:
+![decap-cms-auth-screen](/uploads/decap-cms-post-list.png)
 
+That's it. I may have a series specifically for the customization of the Decap CMS and a few tips.
 
+Let me know your comments.
