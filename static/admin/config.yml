@@ -4,8 +4,8 @@ backend:
   branch: main
   site_domain: thessgcentral.com
 
-media_folder: "static/img" # Adjust based on your media storage location
-public_folder: "/img" # URL path for accessing media
+media_folder: "static/uploads" # Adjust based on your media storage location
+public_folder: "/uploads" # URL path for accessing media
 
 collections:
   - name: "posts" # This is the name used in the URL
