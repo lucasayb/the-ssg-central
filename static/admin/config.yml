@@ -1,6 +1,6 @@
 backend:
   name: github
-  repo: lucasayb/the-ssr-central
+  repo: lucasayb/the-ssg-central
   branch: main
   site_domain: thessgcentral.com
 

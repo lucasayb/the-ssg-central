@@ -1,5 +1,5 @@
 ---
-title: "Decap CMS with Hugo"
+title: "Decap CMS with Hugo in Netlify"
 description: "Let's integrate the Open Source CMS with Hugo with just a few tips"
 date: 2024-02-05T17:15:30-03:00
 image: 
@@ -13,7 +13,7 @@ draft: true
 Before anything, I'm assuming that you have the following stack:
 - Hugo extended ~>0.113.0
 - Github as the cloud-based Git repository manager
-- Your site deployed into Netlify or Vercel
+- Your site deployed into Netlify
 - A little bit of experience with Git
 
 ## 1. Create a `config.yml` file into the `static/admin` folder.
@@ -23,7 +23,7 @@ In this file, you should place the following content:
 ```yaml
 backend:
   name: github
-  repo: lucasayb/the-ssr-central
+  repo: lucasayb/the-ssg-central
   branch: main
   site_domain: thessgcentral.com
 
@@ -51,7 +51,7 @@ Let's see what it's happening in this code:
 ```yaml
 backend:
   name: github
-  repo: lucasayb/the-ssr-central
+  repo: lucasayb/the-ssg-central
   branch: main
   site_domain: thessgcentral.com
 ```
@@ -167,5 +167,40 @@ $ git add .
 $ git commit -m 'adds files to install Decap CMS'
 $ git push -u origin main
 ```
+
+After a few minutes or the time needed for your site to be deployed, if you access /admin of your site, you should be able to see the following screen:
+
+![decap-cms-auth-screen](/uploads/decap-cms-auth-screen.jpg)
+
+However, if you click in Login with GitHub, you will get the following error:
+
+![decap-cms-auth-screen](/uploads/decap-cms-auth-error-screen.jpg)
+
+The great is that this error tells exactly what you got do.
+
+1. Go to the **Settings** of your Github Account and scroll down to the **Developer Settings**.
+
+![decap-cms-auth-screen](/uploads/github-developer-settings.png)
+
+2. While in the **Developer Settings** page, select the **OAuth Apps** and click in **New OAuth App**.
+
+![decap-cms-auth-screen](/uploads/github-developer-settings-oauth-settings.png)
+
+3. Give a name to your app (it can be your site name), put URL of your site and in the Authorization Callback URL, put the following:
+```
+https://api.netlify.com/auth/done
+```
+4. Generate a new app secret and store it safely with the clientId of your app. We will use both later.
+
+5. Now you need to access your Netlify panel and go to **Sites**. Select your site and go to **Site Configuration**.
+
+![decap-cms-auth-screen](/uploads/decap-cms-fix-auth-error-1.jpg)
+
+6. Go to **Access & security** tab. Scroll down to the **OAuth** section and click in **Install Provider** in the **Authentication providers** box. 
+
+![decap-cms-auth-screen](/uploads/authentication-provider-client-secret.jpeg)
+
+7. Fill both of the fields with the data that we generated on Github
+
 
 
