@@ -50,7 +50,7 @@ It only changes the font family of the preview, adds a line-height just to make 
 
 Today our view is similar to this:
 
-![](/uploads/scr-20240205-rdvo.png)
+![The view is broken and the text is completely unaligned](/uploads/scr-20240205-rdvo.png "Broken view")
 
 ## 2. Modify your `index.html` to use the new `styles.css`
 
@@ -127,7 +127,7 @@ $ jekyll serve
 
 If you just access your site locally, access the /admin and to the login, you will be able to enter into a post and see that now it's much better formatted.
 
-![](/uploads/scr-20240205-rgzx.png)
+![Now the font is fixed using Arial and it's much better to read](/uploads/scr-20240205-rgzx.png "Fixed font")
 
 ## 3. Show only the desired elements
 
@@ -210,7 +210,7 @@ The code should look like this:
 
 Save it, and now you should only see what you desire!
 
-![](/uploads/scr-20240205-rmep.png)
+![We can now see in the preview only the title and the text of the generated body](/uploads/scr-20240205-rmep.png "Final result")
 
 That's it! 
 
