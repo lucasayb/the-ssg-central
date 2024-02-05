@@ -7,6 +7,7 @@ hidden: false
 comments: true
 draft: false
 weight: 0
+category: CMS Tips
 ---
 Last week I posted how [to integrate your Decap CMS with Hugo in Netlify](https://thessgcentral.com/p/decap-cms-with-hugo-in-netlify/). Now, if you are already using this CMS, you probably realized that the preview section is not very presentable and it can be even useless as it shows an unformatted text, which goes against it's purpose. 
 

@@ -9,6 +9,7 @@ draft: false
 math: null
 hidden: false
 weight: 0
+category: CMS Tips
 ---
 Decap CMS (formerly Netlify CMS) is used mainly to manage the content of your Static Site that uses markdown. You don't actually need to have a markdown website to use this CMS, but you may lose a lot of it's potential if you don't.
 
