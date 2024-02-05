@@ -1,0 +1,22 @@
+backend:
+  name: git
+  branch: main # Use your default branch here
+
+media_folder: "static/img" # Adjust based on your media storage location
+public_folder: "/img" # URL path for accessing media
+
+collections:
+  - name: "posts" # This is the name used in the URL
+    label: "Post" # This is the singular name of the content type for the UI
+    folder: "content/posts" # The folder where your posts markdown files will be saved
+    create: true # Allows users to create new documents in this collection
+    slug: "{{year}}-{{month}}-{{day}}-{{slug}}" # Filename template for new posts
+    fields: # List of fields for the front matter
+      - {label: "Title", name: "title", widget: "string"}
+      - {label: "Description", name: "description", widget: "text"}
+      - {label: "Date", name: "date", widget: "datetime"}
+      - {label: "Image", name: "image", widget: "image", required: false}
+      - {label: "Hidden", name: "hidden", widget: "boolean", default: false}
+      - {label: "Comments", name: "comments", widget: "boolean", default: true}
+      - {label: "Draft", name: "draft", widget: "boolean", default: false}
+      - {label: "Weight", name: "weight", widget: "number"}
