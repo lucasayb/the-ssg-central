@@ -22,3 +22,4 @@ collections:
       - {label: "Comments", name: "comments", widget: "boolean", default: true}
       - {label: "Draft", name: "draft", widget: "boolean", default: false}
       - {label: "Weight", name: "weight", widget: "number"}
+      - { label: "Body", name: "body", widget: "markdown" }
