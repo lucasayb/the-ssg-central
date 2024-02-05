@@ -187,21 +187,21 @@ $ git push -u origin main
 
 After a few minutes or the time needed for your site to be deployed, if you access /admin of your site, you should be able to see the following screen:
 
-![decap-cms-auth-screen](/uploads/decap-cms-auth-screen.jpg)
+![Decap CMS with the Login with Github button](/uploads/decap-cms-auth-screen.jpg "Decap CMS Auth Screen")
 
 However, if you click in Login with GitHub, you will get the following error:
 
-![decap-cms-auth-screen](/uploads/decap-cms-auth-error-screen.jpg)
+![If you click in Login with GitHub, you get and error pointing you to access your netlify panel and add Github as an Auth Provider](/uploads/decap-cms-auth-error-screen.jpg "Decap CMS error Auth screen")
 
 The great is that this error tells exactly what you got do.
 
 1. Go to the **Settings** of your Github Account and scroll down to the **Developer Settings**.
 
-![decap-cms-auth-screen](/uploads/github-developer-settings.png)
+![This image shows the Developer Settings option with a red box around it](/uploads/github-developer-settings.png "Github Developer Settings")
 
 2. While in the **Developer Settings** page, select the **OAuth Apps** and click in **New OAuth App**.
 
-![decap-cms-auth-screen](/uploads/github-developer-settings-oauth-settings.png)
+![The list of OAuth Apps that you may have. I only have one, which is my personal blog.](/uploads/github-developer-settings-oauth-settings.png "OAuth Apps")
 
 3. Give a name to your app (it can be your site name), put URL of your site and in the Authorization Callback URL, put the following:
 
@@ -212,11 +212,11 @@ https://api.netlify.com/auth/done
 4. Generate a new app secret and store it safely with the clientId of your app. We will use both later.
 5. Now you need to access your Netlify panel and go to **Sites**. Select your site and go to **Site Configuration**.
 
-![decap-cms-auth-screen](/uploads/decap-cms-fix-auth-error-1.jpg)
+![Site Configuration button that needs to be clicked](/uploads/decap-cms-fix-auth-error-1.jpg "Netlify Panel")
 
 6. Go to **Access & security** tab. Scroll down to the **OAuth** section and click in **Install Provider** in the **Authentication providers** box. 
 
-![decap-cms-auth-screen](/uploads/authentication-provider-client-secret.jpeg)
+![Authentication Provider fields that needs to be filled](/uploads/authentication-provider-client-secret.jpeg "Authentication Provider fields")
 
 7. Fill both of the fields with the data that we generated on Github
 
