@@ -1,6 +1,6 @@
 ---
 title: "Welcome"
-description: This site is new. I'm relatively new too in the SSG world. But I'm pretty sure that I have enough knowledge to sure with others.
+description: This site is new. I'm relatively new too in the SSG world. But I'm pretty sure that I have enough knowledge to share with others.
 date: 2024-02-05T16:49:19-03:00
 image: 
 hidden: false
