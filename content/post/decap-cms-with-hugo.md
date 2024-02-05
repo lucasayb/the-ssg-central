@@ -10,6 +10,8 @@ math: null
 hidden: false
 weight: 0
 ---
+Decap CMS (formerly Netlify CMS) is used mainly to manage the content of your Static Site that uses markdown. You don't actually need to have a markdown website to use this CMS, but you may lose a lot of it's potential if you don't.
+
 Before anything, I'm assuming that you have the following stack:
 
 * Hugo extended ~>0.113.0
