@@ -1,5 +1,5 @@
 ---
-title: Example Category
+title: Decap CMS
 description: A description of this category
 image:
 
