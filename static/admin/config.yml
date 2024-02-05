@@ -1,6 +1,8 @@
 backend:
-  name: git
-  branch: main # Use your default branch here
+  name: github
+  repo: lucasayb/the-ssr-central
+  branch: main
+  site_domain: thessgcentral.com
 
 media_folder: "static/img" # Adjust based on your media storage location
 public_folder: "/img" # URL path for accessing media

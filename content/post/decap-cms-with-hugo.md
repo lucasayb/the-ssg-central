@@ -7,7 +7,7 @@ math:
 license: 
 hidden: false
 comments: true
-draft: false
+draft: true
 ---
 
 Before anything, I'm assuming that you have the following stack:
@@ -22,8 +22,10 @@ In this file, you should place the following content:
 
 ```yaml
 backend:
-  name: git
-  branch: main # Use your default branch here
+  name: github
+  repo: lucasayb/the-ssr-central
+  branch: main
+  site_domain: thessgcentral.com
 
 media_folder: "static/uploads" # Adjust based on your media storage location
 public_folder: "/uploads" # URL path for accessing media
@@ -48,10 +50,18 @@ collections:
 Let's see what it's happening in this code:
 ```yaml
 backend:
-  name: git
-  branch: main # Use your default branch here
+  name: github
+  repo: lucasayb/the-ssr-central
+  branch: main
+  site_domain: thessgcentral.com
 ```
-We need to define where the content of the website is coming from. That's way we define that we handling with Git and the branch is the `main`. Keep in mind that there a few themes that still creates the branch as `master`. This is not a good practice, but still happens. Change it in the way it suits your case.
+We need to define where the content of the website is coming from.
+* The `name` must be `github` if you, as me, are using Github
+* The `repo` must be the user or organization and the name of your repository
+* The `branch` is the `main` becaue generally is where we store the content that reflects exactly what we have in production, but it can be any other branch that you prefer. Keep in mind that there are a few themes that still creates the branch as `master`. This is not a good practice, but still happens. Change it in the way it suits your case.
+* The `site_domain` should be the main domain of your website
+
+That's way we define that we handling with Git and 
 
 ```yaml
 media_folder: "static/uploads" # Adjust based on your media storage location
@@ -151,9 +161,11 @@ That's basically it. Now, there are possible customizations that can be done int
 
 ## 3. Deployment of these files
 
-After all that, you can just commit both of this files and push it to your repository. You can either use the Ui for that or the command line
+After all that, you can just commit both of this files and push it to your repository. You can either use the Ui for that or the command line:
 ```bash
-$ 
+$ git add .
+$ git commit -m 'adds files to install Decap CMS'
+$ git push -u origin main
 ```
 
 
