@@ -5,7 +5,7 @@ description: Let's integrate the Open Source CMS with Hugo with just a few tips
 date: 2024-02-05T17:15:30-03:00
 image: null
 comments: true
-draft: true
+draft: false
 math: null
 hidden: false
 weight: 0
