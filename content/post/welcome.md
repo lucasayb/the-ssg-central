@@ -7,6 +7,8 @@ hidden: false
 comments: true
 draft: false
 weight: 1
+categories: 
+  - Diverse
 ---
 
 I'm currently the Solution Maker and Account Manager in Keyrus Latam Digital team. Before that, I was the CTO of Codeby, responsible to lead a team with almost 60 developers. My focus was always e-commerce, but I always loved to discover things and learn new stuff. Havign a site is something that I do since forever and everytime that I find a bit of time, I decide to post something new in [my personal blog](https://www.lucasyamamoto.com).
