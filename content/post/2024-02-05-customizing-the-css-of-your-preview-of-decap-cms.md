@@ -47,7 +47,7 @@ This file only has a few basic lines of styling. But it's enough to fix our CMS 
 }
 ```
 
-It only changes the font family of the preview, adds a line-height just to make the lines a bit more spaced, and adds a max-width of 100% for each image so that they don't trespass the container of the preview section.
+It only changes the font family of the preview, adds a `line-height` just to make the lines a bit more spaced, and adds a max-width of 100% for each image so that they don't trespass the container of the preview section.
 
 Today our view is similar to this:
 
@@ -55,7 +55,7 @@ Today our view is similar to this:
 
 ## 2. Modify your `index.html` to use the new `styles.css`
 
-Now that we have our file, we just need to call it. Your index.html of your Decap CMS may be looking like this:
+Now that we have our file, we just need to call it. Your `index.html` of your Decap CMS may be looking like this:
 
 ```html
 <!doctype html>
@@ -73,7 +73,7 @@ Now that we have our file, we just need to call it. Your index.html of your Deca
 </html>
 ```
 
-Below the script tag, before the </body>, you can add the following:
+Below the script tag, before the `</body>`, you can add the following:
 
 ```javascript
 CMS.registerPreviewStyle("/admin/styles.css");
@@ -126,7 +126,7 @@ $ yarn gatsby serve
 $ jekyll serve
 ```
 
-If you just access your site locally, access the /admin and to the login, you will be able to enter into a post and see that now it's much better formatted.
+If you just access your site locally, access the `/admin` and to the login, you will be able to enter into a post and see that now it's much better formatted.
 
 ![Now the font is fixed using Arial and it's much better to read](/uploads/scr-20240205-rgzx.png "Fixed font")
 
@@ -138,7 +138,7 @@ But if we talking about the date, you will always have a pretty good idea of how
 
 Because of that, I prefer to hide it. 
 
-Still in the index.html, let's create a component that will render only what we want:
+Still in the `index.html`, let's create a component that will render only what we want:
 
 ```html
 <!doctype html>
