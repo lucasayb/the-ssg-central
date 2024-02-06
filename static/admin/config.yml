@@ -22,7 +22,6 @@ collections:
       - {label: "Comments", name: "comments", widget: "boolean", default: true}
       - {label: "Draft", name: "draft", widget: "boolean", default: false}
       - {label: "Weight", name: "weight", widget: "number", required: false}
-      - {label: "Body", name: "body", widget: "markdown"}
       - label: "Category"
         name: "category"
         widget: "relation"
@@ -31,6 +30,8 @@ collections:
         valueField: "title" # This defines which field from the categories collection to store as the value in the posts
         displayFields: ["title"] # This defines what fields to display in the CMS for selection
         required: false
+      - {label: "Body", name: "body", widget: "markdown"}
+
 
   - name: "categories" # This is the name used in the URL for categories
     label: "Category" # This is the singular name of the category content type for the UI
