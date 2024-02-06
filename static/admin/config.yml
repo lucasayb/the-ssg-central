@@ -22,14 +22,17 @@ collections:
       - {label: "Comments", name: "comments", widget: "boolean", default: true}
       - {label: "Draft", name: "draft", widget: "boolean", default: false}
       - {label: "Weight", name: "weight", widget: "number", required: false}
-      - label: "Category"
-        name: "category"
-        widget: "relation"
-        collection: "categories" # This should match the name of your categories collection
-        searchFields: ["title"] # This defines what fields to search in the categories collection to list options
-        valueField: "title" # This defines which field from the categories collection to store as the value in the posts
-        displayFields: ["title"] # This defines what fields to display in the CMS for selection
-        required: false
+      - {label: "Category", name: "category", widget: "select", options: [
+          "CMS Tips"
+        ] }
+      # - label: "Category"
+      #   name: "category"
+      #   widget: "relation"
+      #   collection: "categories" # This should match the name of your categories collection
+      #   searchFields: ["title"] # This defines what fields to search in the categories collection to list options
+      #   valueField: "title" # This defines which field from the categories collection to store as the value in the posts
+      #   displayFields: ["title"] # This defines what fields to display in the CMS for selection
+      #   required: false
       - {label: "Body", name: "body", widget: "markdown"}
 
 
