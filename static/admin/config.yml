@@ -75,41 +75,98 @@ collections:
           - {label: "Background", name: "background", widget: "string"}
           - {label: "Color", name: "color", widget: "string"}
   
-  - label: "Pages"
-    name: "pages"
+  - name: "pages"
+    label: "Pages"
     files:
       - label: "Archives"
         name: "archives"
+        editor:
+          preview: false
         file: "content/page/archives/index.md"
-        fields: # List of fields for the category front matter
-        - {label: "Title", name: "title", widget: "string"}
-        - {label: "Description", name: "description", widget: "text"}
-        - {label: "Image", name: "image", widget: "image", required: false}
-        - {label: "Comments", name: "comments", widget: "boolean", default: true}
-        - label: "Style"
-          name: "style"
-          widget: "object"
-          fields:
-            - {label: "Background", name: "background", widget: "string"}
-            - {label: "Color", name: "color", widget: "string"}
+        fields:
+          - label: "Title"
+            name: "title"
+            widget: "string"
+          - label: "Date"
+            name: "date"
+            widget: "datetime"
+          - label: "Layout"
+            name: "layout"
+            widget: "hidden"
+            default: "archives"
+          - label: "Slug"
+            name: "slug"
+            widget: "string"
+          - label: "Menu"
+            name: "menu"
+            widget: "object"
+            fields:
+              - label: "Main"
+                name: "main"
+                widget: "object"
+                fields:
+                  - label: "Weight"
+                    name: "weight"
+                    widget: "number"
+                  - label: "Params"
+                    name: "params"
+                    widget: "object"
+                    fields:
+                      - label: "Icon"
+                        name: "icon"
+                        widget: "string"
 
       - label: "Links"
         name: "links"
+        editor:
+          preview: false
         file: "content/page/links/index.md"
-        fields: # List of fields for the category front matter
-        - {label: "Title", name: "title", widget: "string"}
-        - {label: "Description", name: "description", widget: "text"}
-        - {label: "Image", name: "image", widget: "image", required: false}
-        - {label: "Comments", name: "comments", widget: "boolean", default: true}
-        - label: "Style"
-          name: "style"
-          widget: "object"
-          fields:
-            - {label: "Background", name: "background", widget: "string"}
-            - {label: "Color", name: "color", widget: "string"}
+        fields:
+          - label: "Title"
+            name: "title"
+            widget: "string"
+          - label: "Links"
+            name: "links"
+            widget: "list"
+            fields:
+              - label: "Title"
+                name: "title"
+                widget: "string"
+              - label: "Description"
+                name: "description"
+                widget: "text"
+              - label: "Website"
+                name: "website"
+                widget: "string"
+              - label: "Image"
+                name: "image"
+                widget: "image"
+          - label: "Menu"
+            name: "menu"
+            widget: "object"
+            fields:
+              - label: "Main"
+                name: "main"
+                widget: "object"
+                fields:
+                  - label: "Weight"
+                    name: "weight"
+                    widget: "number"
+                  - label: "Params"
+                    name: "params"
+                    widget: "object"
+                    fields:
+                      - label: "Icon"
+                        name: "icon"
+                        widget: "string"
+          - label: "Comments"
+            name: "comments"
+            widget: "boolean"
 
       - label: "Search"
         name: "search"
+        editor:
+          preview: false
         file: "content/page/search/index.md"
         fields: # List of fields for the category front matter
         - {label: "Title", name: "title", widget: "string"}
