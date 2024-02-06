@@ -65,7 +65,7 @@ We need to define where the content of the website is coming from.
 
 * The `name` must be `github` if you, as me, are using Github
 * The `repo` must be the user or organization and the name of your repository
-* The `branch` is the `main` becaue generally is where we store the content that reflects exactly what we have in production, but it can be any other branch that you prefer. Keep in mind that there are a few themes that still creates the branch as `master`. This is not a good practice, but still happens. Change it in the way it suits your case.
+* The `branch` is the `main` because generally is where we store the content that reflects exactly what we have in production, but it can be any other branch that you prefer. Keep in mind that there are a few themes that still creates the branch as `master`. This is not a good practice, but still happens. Change it in the way it suits your case.
 * The `site_domain` should be the main domain of your website
 
 That's way we define that we handling with Git and 
@@ -81,6 +81,8 @@ With Decap CMS, we can upload media. the `media_folder` is where the Decap CMS i
 media_folder: "static/cool_images" # Adjust based on your media storage location
 public_folder: "/cool_images" # URL path for accessing media
 ```
+
+And then, there are collections:
 
 ```yaml
 collections:
