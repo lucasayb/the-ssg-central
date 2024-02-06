@@ -74,3 +74,403 @@ collections:
         fields:
           - {label: "Background", name: "background", widget: "string"}
           - {label: "Color", name: "color", widget: "string"}
+  
+  - label: "Pages"
+    name: "pages"
+    files:
+      - label: "Archives"
+        name: "archives"
+        file: "content/page/archives/index.md"
+        fields: # List of fields for the category front matter
+        - {label: "Title", name: "title", widget: "string"}
+        - {label: "Description", name: "description", widget: "text"}
+        - {label: "Image", name: "image", widget: "image", required: false}
+        - {label: "Comments", name: "comments", widget: "boolean", default: true}
+        - label: "Style"
+          name: "style"
+          widget: "object"
+          fields:
+            - {label: "Background", name: "background", widget: "string"}
+            - {label: "Color", name: "color", widget: "string"}
+
+      - label: "Links"
+        name: "links"
+        file: "content/page/links/index.md"
+        fields: # List of fields for the category front matter
+        - {label: "Title", name: "title", widget: "string"}
+        - {label: "Description", name: "description", widget: "text"}
+        - {label: "Image", name: "image", widget: "image", required: false}
+        - {label: "Comments", name: "comments", widget: "boolean", default: true}
+        - label: "Style"
+          name: "style"
+          widget: "object"
+          fields:
+            - {label: "Background", name: "background", widget: "string"}
+            - {label: "Color", name: "color", widget: "string"}
+
+      - label: "Search"
+        name: "search"
+        file: "content/page/search/index.md"
+        fields: # List of fields for the category front matter
+        - {label: "Title", name: "title", widget: "string"}
+        - {label: "Description", name: "description", widget: "text"}
+        - {label: "Image", name: "image", widget: "image", required: false}
+        - {label: "Comments", name: "comments", widget: "boolean", default: true}
+        - label: "Output"
+          name: "output"
+          widget: "select"
+          options: [
+            "json",
+            "html"
+          ]
+          multiple: true
+        - label: "Style"
+          name: "style"
+          widget: "object"
+          fields:
+            - {label: "Background", name: "background", widget: "string"}
+            - {label: "Color", name: "color", widget: "string"}
+
+  - label: "Site Settings"
+    name: "settings"
+    files:
+      - label: "General settings"
+        name: "config"
+        editor:
+          preview: false
+        file: "config/_default/config.toml"
+        fields: # List of fields for the category front matter
+        - {label: "Title", name: "title", widget: "string"}
+        - {label: "Base URL", name: "baseurl", widget: "string"}
+        - {label: "Language Code", name: "languageCode", widget: "string"}
+        - {label: "Default Content Language", name: "defaultContentLanguage", widget: "string"}
+        - {label: "Disqus Shortname", name: "disqusShortname", widget: "string"}
+        - {label: "Paginate", name: "paginate", widget: "number", value_type: "int" }
+      
+      - label: "Params"
+        name: "params"
+        editor:
+          preview: false
+        file: "config/_default/params.toml"
+        fields:
+          - label: "Main Sections"
+            name: "mainSections"
+            widget: "list"
+            allow_add: true
+            default: ["post"]
+          - label: "Favicon"
+            name: "favicon"
+            widget: "image"
+          - label: "RSS Full Content"
+            name: "rssFullContent"
+            widget: "boolean"
+          - label: "Footer"
+            name: "footer"
+            widget: "object"
+            fields:
+              - label: "Since"
+                name: "since"
+                widget: "number"
+                value_type: "int"
+              - label: "Custom Text"
+                name: "customText"
+                widget: "string"
+          - label: "Date Format"
+            name: "dateFormat"
+            widget: "object"
+            fields:
+              - label: "Published"
+                name: "published"
+                widget: "string"
+              - label: "Last Updated"
+                name: "lastUpdated"
+                widget: "string"
+          - label: "Sidebar"
+            name: "sidebar"
+            widget: "object"
+            fields:
+              - label: "Subtitle"
+                name: "subtitle"
+                widget: "string"
+              - label: "Logo"
+                name: "logo"
+                widget: "object"
+                fields:
+                  - label: "Enabled"
+                    name: "enabled"
+                    widget: "boolean"
+                  - label: "Local"
+                    name: "local"
+                    widget: "boolean"
+                  - label: "Source"
+                    name: "src"
+                    widget: "image"
+          - label: "Article"
+            name: "article"
+            widget: "object"
+            fields:
+              - label: "Math"
+                name: "math"
+                widget: "boolean"
+              - label: "Reading Time"
+                name: "readingTime"
+                widget: "boolean"
+          - label: "Article License"
+            name: "article.license"
+            widget: "object"
+            fields:
+              - label: "Enabled"
+                name: "enabled"
+                widget: "boolean"
+              - label: "Default"
+                name: "default"
+                widget: "string"
+          - label: "Widgets"
+            name: "widgets"
+            widget: "list"
+            types:
+              - label: "Homepage Widget"
+                name: "homepage"
+                widget: "object"
+                fields:
+                  - label: "Type"
+                    name: "type"
+                    widget: "string"
+                  - label: "Params"
+                    name: "params"
+                    widget: "object"
+                    fields:
+                      - label: "Limit"
+                        name: "limit"
+                        widget: "number"
+              - label: "Page Widget"
+                name: "page"
+                widget: "object"
+                fields:
+                  - label: "Type"
+                    name: "type"
+                    widget: "string"
+
+          - label: "OpenGraph Twitter"
+            name: "opengraph.twitter"
+            widget: "object"
+            fields:
+              - label: "Site"
+                name: "site"
+                widget: "string"
+              - label: "Card"
+                name: "card"
+                widget: "string"
+
+          - label: "Default Image OpenGraph"
+            name: "defaultImage.opengraph"
+            widget: "object"
+            fields:
+              - label: "Enabled"
+                name: "enabled"
+                widget: "boolean"
+              - label: "Local"
+                name: "local"
+                widget: "boolean"
+              - label: "Source"
+                name: "src"
+                widget: "image"
+
+          - label: "Color Scheme"
+            name: "colorScheme"
+            widget: "object"
+            fields:
+              - label: "Toggle"
+                name: "toggle"
+                widget: "boolean"
+              - label: "Default"
+                name: "default"
+                widget: "select"
+                options: ["auto", "light", "dark"]
+
+          - label: "Image Processing"
+            name: "imageProcessing"
+            widget: "object"
+            fields:
+              - label: "Cover"
+                name: "cover"
+                widget: "boolean"
+              - label: "Content"
+                name: "content"
+                widget: "boolean"
+
+          - label: "Comments"
+            name: "comments"
+            widget: "object"
+            fields:
+              - label: "Enabled"
+                name: "enabled"
+                widget: "boolean"
+              - label: "Provider"
+                name: "provider"
+                widget: "string"
+              - label: "DisqusJS"
+                name: "disqusjs"
+                widget: "object"
+                fields:
+                  - {label: "Shortname", name: "shortname", widget: "string"}
+                  - {label: "API Url", name: "apiUrl", widget: "string"}
+                  - {label: "API Key", name: "apiKey", widget: "string"}
+                  - {label: "Admin", name: "admin", widget: "string"}
+                  - {label: "Admin Label", name: "adminLabel", widget: "string"}
+              # Repeat for each comments provider with their specific fields
+
+      - label: "Markdown Renderer"
+        name: "markdownRendererConfiguration"
+        editor:
+          preview: false
+        file: "config/_default/markup.toml"
+        fields:
+          - label: "Goldmark Renderer"
+            name: "goldmark.renderer"
+            widget: "object"
+            fields:
+              - label: "Unsafe"
+                name: "unsafe"
+                widget: "boolean"
+          - label: "Table Of Contents"
+            name: "tableOfContents"
+            widget: "object"
+            fields:
+              - label: "End Level"
+                name: "endLevel"
+                widget: "number"
+              - label: "Ordered"
+                name: "ordered"
+                widget: "boolean"
+              - label: "Start Level"
+                name: "startLevel"
+                widget: "number"
+          - label: "Highlight"
+            name: "highlight"
+            widget: "object"
+            fields:
+              - label: "No Classes"
+                name: "noClasses"
+                widget: "boolean"
+              - label: "Code Fences"
+                name: "codeFences"
+                widget: "boolean"
+              - label: "Guess Syntax"
+                name: "guessSyntax"
+                widget: "boolean"
+              - label: "Line Number Start"
+                name: "lineNoStart"
+                widget: "number"
+              - label: "Line Numbers"
+                name: "lineNos"
+                widget: "boolean"
+              - label: "Line Numbers In Table"
+                name: "lineNumbersInTable"
+                widget: "boolean"
+              - label: "Tab Width"
+                name: "tabWidth"
+                widget: "number"
+
+      - label: "Menu"
+        name: "menuConfiguration"
+        editor:
+          preview: false
+        file: "config/_default/menu.toml"
+        fields:
+          - label: "Social Links"
+            name: "social"
+            widget: "list"
+            fields:
+              - label: "Identifier"
+                name: "identifier"
+                widget: "string"
+              - label: "Name"
+                name: "name"
+                widget: "string"
+              - label: "URL"
+                name: "url"
+                widget: "string"
+              - label: "Params"
+                name: "params"
+                widget: "object"
+                fields:
+                  - label: "Icon"
+                    name: "icon"
+                    widget: "string"
+
+      - label: "Module"
+        name: "moduleConfiguration"
+        editor:
+          preview: false
+        file: "config/_default/module.toml"
+        fields:
+          - label: "Imports"
+            name: "imports"
+            widget: "list"
+            fields:
+              - label: "Path"
+                name: "path"
+                widget: "string"
+
+      - label: "Permalinks"
+        name: "permalinksConfiguration"
+        editor:
+          preview: false
+        file: "config/_default/permalinks.toml"
+        fields:
+          - label: "Post"
+            name: "post"
+            widget: "string"
+          - label: "Page"
+            name: "page"
+            widget: "string"
+
+      - label: "Languages"
+        name: "languagesConfiguration"
+        editor:
+          preview: false
+        file: "config/_default/languages.toml"
+        fields:
+          - label: "English"
+            name: "en"
+            widget: "object"
+            fields:
+              - label: "Language Name"
+                name: "languageName"
+                widget: "string"
+              - label: "Language Direction"
+                name: "languagedirection"
+                widget: "string"
+              - label: "Title"
+                name: "title"
+                widget: "string"
+              - label: "Weight"
+                name: "weight"
+                widget: "number"
+
+      - label: "Related Content"
+        name: "relatedContentConfiguration"
+        editor:
+          preview: false
+        file: "config/_default/related.toml"
+        fields:
+          - label: "Include Newer"
+            name: "includeNewer"
+            widget: "boolean"
+          - label: "Threshold"
+            name: "threshold"
+            widget: "number"
+          - label: "Convert to Lowercase"
+            name: "toLower"
+            widget: "boolean"
+          - label: "Indices"
+            name: "indices"
+            widget: "list"
+            fields:
+              - label: "Name"
+                name: "name"
+                widget: "string"
+              - label: "Weight"
+                name: "weight"
+                widget: "number"
