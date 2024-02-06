@@ -30,7 +30,7 @@ collections:
         searchFields: ["title"] # This defines what fields to search in the categories collection to list options
         valueField: "title" # This defines which field from the categories collection to store as the value in the posts
         displayFields: ["title"] # This defines what fields to display in the CMS for selection
-        required: false
+        multiple: true
       - label: "Tag"
         name: "tags"
         widget: "relation"
@@ -38,7 +38,7 @@ collections:
         searchFields: ["title"] # This defines what fields to search in the tags collection to list options
         valueField: "title" # This defines which field from the tags collection to store as the value in the posts
         displayFields: ["title"] # This defines what fields to display in the CMS for selection
-        required: false
+        multiple: true
       - {label: "Body", name: "body", widget: "markdown"}
 
   - name: "categories" # This is the name used in the URL for categories
