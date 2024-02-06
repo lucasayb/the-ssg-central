@@ -12,7 +12,7 @@ collections:
     label: "Post" # This is the singular name of the content type for the UI
     folder: "content/post" # The folder where your posts markdown files will be saved
     create: true # Allows users to create new documents in this collection
-    slug: "{{year}}-{{month}}-{{day}}-{{slug}}" # Filename template for new posts
+    slug: "{{slug}}" # Filename template for new posts
     fields: # List of fields for the front matter
       - {label: "Title", name: "title", widget: "string"}
       - {label: "Description", name: "description", widget: "text"}
@@ -22,8 +22,9 @@ collections:
       - {label: "Comments", name: "comments", widget: "boolean", default: true}
       - {label: "Draft", name: "draft", widget: "boolean", default: false}
       - {label: "Weight", name: "weight", widget: "number", required: false}
-      - {label: "Category", name: "category", widget: "select", options: [
-          "CMS Tips"
+      - {label: "Category", name: "categories", widget: "select", options: [
+          "CMS Tips",
+          "Diverse",
         ] }
       # - label: "Category"
       #   name: "category"
