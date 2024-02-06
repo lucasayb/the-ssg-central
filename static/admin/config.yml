@@ -22,7 +22,7 @@ collections:
       - {label: "Comments", name: "comments", widget: "boolean", default: true}
       - {label: "Draft", name: "draft", widget: "boolean", default: false}
       - {label: "Weight", name: "weight", widget: "number", required: false}
-      - {label: "Category", name: "categories", widget: "select", options: [
+      - {label: "Category", name: "categories", multiple: true, widget: "select", options: [
           "CMS Tips",
           "Diverse",
         ] }
