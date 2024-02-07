@@ -9,13 +9,13 @@ draft: false
 math: null
 hidden: false
 weight: 0
+categories:
+  - Headless CMS
+  - Tutorials and Guides
 tags:
   - Hugo
   - Decap CMS
   - Netlify
-categories: 
-  - Headless CMS
-  - Tutorials and Guides
 ---
 Decap CMS (formerly Netlify CMS) is used mainly to manage the content of your Static Site that uses markdown. You don't actually need to have a markdown website to use this CMS, but you may lose a lot of it's potential if you don't.
 
@@ -55,6 +55,7 @@ collections:
       - { label: "Comments", name: "comments", widget: "boolean", default: true }
       - { label: "Draft", name: "draft", widget: "boolean", default: false }
       - { label: "Weight", name: "weight", widget: "number" }
+      - { label: "Body", name: "body", widget: "markdown" }
 ```
 
 Let's see what it's happening in this code:
@@ -88,7 +89,7 @@ media_folder: "static/cool_images" # Adjust based on your media storage location
 public_folder: "/cool_images" # URL path for accessing media
 ```
 
-And then, there are collections:
+And then, there are the collections:
 
 ```yaml
 collections:
