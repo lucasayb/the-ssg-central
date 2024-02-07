@@ -2,7 +2,7 @@
 title: Easily editing site settings through the Decap CMS
 description: Change the site name, social networks and more using the power of
   the Decap CMS (formerly Netlify CMS)
-date: 2024-02-05T03:47:00.000Z
+date: 2024-02-19T03:47:00.000Z
 hidden: false
 comments: true
 draft: false
@@ -152,7 +152,6 @@ You can either test locally (depending on what SSG you are using) or you can com
 $ git add .
 $ git commit -m "adds the file collection for the settings"
 $ git push -u origin main
-
 ```
 
 We can wait for the build time of our site and then, accessing the Decap CMS, we can see that a new section has appeared in the sidebar:
@@ -265,7 +264,6 @@ collections:
          - {label: "Default Content Language", name: "defaultContentLanguage", widget: "string"}
          - {label: "Disqus Shortname", name: "disqusShortname", widget: "string"}
          - {label: "Paginate", name: "paginate", widget: "number", value_type: "int" }
-
 ```
 
 And now, if we take a look at how the admin is being shown, we have the following view:
@@ -314,7 +312,6 @@ collections:
           - { label: "Date Format", name: "date_format", widget: "string" }
         fields:
           - { label: "Plugins", name: "plugins", widget: "list", default: ["jekyll-redirect-from", "jekyll-feed"] }
-
 ```
 
 ### Hugo
@@ -344,7 +341,6 @@ collections:
           - { label: "Base URL", name: "baseURL", widget: "string" }
           - { label: "Language Code", name: "languageCode", widget: "string" }
           - { label: "Title", name: "title", widget: "string" }
-
 ```
 
 I can provide other examples, depending on what you request.
