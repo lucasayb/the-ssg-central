@@ -166,3 +166,37 @@ Clicking on Site settings, we can see that there is  another section called Gene
 We can then edit our Disqus Shortname through the panel.
 
 Now let's understand the code that we implemented:
+
+```yaml
+  - label: "Site Settings"
+    name: "settings"
+```
+
+If you already realized, `label` is the name that appears in the UI. `name` is actually how this collection is visualized through the URL of the CMS.
+
+```yaml
+    files:
+```
+
+This line just defines that we are working with file collection. We can define as many files as we want, as it's a list of files, not a single one. This is useful when your site's configurations is divided into many files
+
+```yaml
+      - label: "General settings"
+        name: "config"
+```
+
+These are, once again, the `label`, the UI name of the settings that we are working on, and the `name`, the parameter that appears in the URL.
+
+```yaml
+        editor:
+          preview: false
+         
+```
+
+There is no need to see in real-time in the preview panel what changes we are doing.
+
+```yaml
+        file: "config/_default/config.toml"
+```
+
+You saw before that we mentioned that we could edit the _config.yml, a YAML file, of a Jekyll theme. And if you see carefully, this is actually a TOML file. Turns out that Decap CMS accepts a lot of extensions. They can all be found in [here](https://decapcms.org/docs/configuration-options/).
