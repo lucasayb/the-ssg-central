@@ -2,5 +2,17 @@
     You can add your own custom styles here.
 */
 .site-logo {
-    margin: 0;
+  margin: 0;
+}
+[data-scheme="dark"] .site-logo-white {
+  display: flex !important;
+}
+[data-scheme="dark"] .site-logo-black {
+  display: none !important;
+}
+[data-scheme="light"] .site-logo-black {
+  display: flex !important;
+}
+[data-scheme="light"] .site-logo-white {
+  display: none !important;
 }

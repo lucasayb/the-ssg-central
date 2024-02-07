@@ -18,7 +18,8 @@ subtitle = "Everything you need to know and more to put your static site online!
 [sidebar.logo]
 enabled = true
 local = true
-src = "img/logo.png"
+srcWhite = "img/logo-white.png"
+srcBlack = "img/logo-black.png"
 
 [article]
 math = false

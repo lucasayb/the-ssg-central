@@ -11,14 +11,17 @@
             <figure class="site-logo">
                 <a href="{{ .Site.BaseURL | relLangURL }}">
                 {{ if not .local }}
-                    <img alt="The SSG Central" src="{{ .src }}" width="150" height="74" class="site-logo" loading="lazy" alt="logo">
+                    <img alt="The SSG Central" src="{{ .srcWhite }}" width="150" height="74" class="site-logo site-logo-white" loading="lazy" alt="logo">
+                    <img alt="The SSG Central" src="{{ .srcBlack }}" width="150" height="74" class="site-logo site-logo-black" loading="lazy" alt="logo">
                 {{ else }}
-                    {{ $logo := resources.Get (.src) }}
+                    {{ $logoWhite := resources.Get (.srcWhite) }}
+                    {{ $logoBlack := resources.Get (.srcBlack) }}
                     
-                    {{ if $logo }}
-                        {{ $logoResized := $logo.Resize "150x" }}
-                        <img alt="The SSG Central" src="{{ $logoResized.RelPermalink }}" width="{{ $logoResized.Width }}"
-                            height="{{ $logoResized.Height }}" class="site-logo" loading="lazy" alt="logo">
+                    {{ if $logoWhite }}
+                        {{ $logoResizedWhite := $logoWhite.Resize "150x" }}
+                        {{ $logoResizedBlack := $logoBlack.Resize "150x" }}
+                        <img alt="The SSG Central" src="{{ $logoResizedWhite.RelPermalink }}" width="{{ $logoResizedWhite.Width }}" height="{{ $logoResizedWhite.Height }}" class="site-logo site-logo-white" loading="lazy" alt="logo">
+                        <img alt="The SSG Central" src="{{ $logoResizedBlack.RelPermalink }}" width="{{ $logoResizedBlack.Width }}" height="{{ $logoResizedBlack.Height }}" class="site-logo site-logo-black" loading="lazy" alt="logo">
                     {{ else }}
                         {{ errorf "Failed loading logo from %q" . }}
                     {{ end }}
