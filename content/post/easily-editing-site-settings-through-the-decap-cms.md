@@ -2,7 +2,7 @@
 title: Easily editing site settings through the Decap CMS
 description: Change the site name, social networks and more using the power of
   the Decap CMS (formerly Netlify CMS)
-date: 2024-02-12T03:47:00.000Z
+date: 2024-02-05T03:47:00.000Z
 hidden: false
 comments: true
 draft: false
