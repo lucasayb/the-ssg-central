@@ -199,4 +199,154 @@ There is no need to see in real-time in the preview panel what changes we are do
         file: "config/_default/config.toml"
 ```
 
-You saw before that we mentioned that we could edit the _config.yml, a YAML file, of a Jekyll theme. And if you see carefully, this is actually a TOML file. Turns out that Decap CMS accepts a lot of extensions. They can all be found in [here](https://decapcms.org/docs/configuration-options/).
+You saw before that we mentioned that we could edit the `_config.yml`, a YAML file, of a Jekyll theme. And if you see carefully, this is actually a TOML file. Turns out that Decap CMS accepts a lot of extensions. They can all be found in [here](https://decapcms.org/docs/configuration-options/).
+
+```yaml
+        fields: # List of fields for the category front matter
+        - {label: "Disqus Shortname", name: "disqusShortname", widget: "string"}
+```
+
+Finally, we have the fields. Here we can add any fields that we want, as long as we respect the name and the type of the field, which through the Decap CMS the type is defined by the widget.
+
+If I add only the fields that are in the config.toml file that I provided before, I can have the following:
+
+```yaml
+         - {label: "Title", name: "title", widget: "string"}
+         - {label: "Base URL", name: "baseurl", widget: "string"}
+         - {label: "Language Code", name: "languageCode", widget: "string"}
+         - {label: "Default Content Language", name: "defaultContentLanguage", widget: "string"}
+         - {label: "Disqus Shortname", name: "disqusShortname", widget: "string"}
+         - {label: "Paginate", name: "paginate", widget: "number", value_type: "int" }
+```
+
+The only field in this list that has a different widget is the `Paginate`, which uses the widget `number`, with the `value_type` of `int`.
+
+And the complete file would be:
+
+```yaml
+backend:
+  name: github
+  repo: lucasayb/the-ssg-central
+  branch: main
+  site_domain: thessgcentral.com
+
+media_folder: "static/uploads" # Adjust based on your media storage location
+public_folder: "/uploads" # URL path for accessing media
+
+collections:
+  - name: "posts" # This is the name used in the URL
+    label: "Post" # This is the singular name of the content type for the UI
+    folder: "content/post" # The folder where your posts markdown files will be saved
+    create: true # Allows users to create new documents in this collection
+    slug: "{{year}}-{{month}}-{{day}}-{{slug}}" # Filename template for new posts
+    fields: # List of fields for the front matter
+      - { label: "Title", name: "title", widget: "string" }
+      - { label: "Description", name: "description", widget: "text" }
+      - { label: "Date", name: "date", widget: "datetime" }
+      - { label: "Image", name: "image", widget: "image", required: false }
+      - { label: "Hidden", name: "hidden", widget: "boolean", default: false }
+      - { label: "Comments", name: "comments", widget: "boolean", default: true }
+      - { label: "Draft", name: "draft", widget: "boolean", default: false }
+      - { label: "Weight", name: "weight", widget: "number" }
+      - { label: "Body", name: "body", widget: "markdown" }
+
+  - label: "Site Settings"
+    name: "settings"
+    files:
+      - label: "General settings"
+        name: "config"
+        editor:
+          preview: false
+        file: "config/_default/config.toml"
+        fields: # List of fields for the category front matter
+         - {label: "Title", name: "title", widget: "string"}
+         - {label: "Base URL", name: "baseurl", widget: "string"}
+         - {label: "Language Code", name: "languageCode", widget: "string"}
+         - {label: "Default Content Language", name: "defaultContentLanguage", widget: "string"}
+         - {label: "Disqus Shortname", name: "disqusShortname", widget: "string"}
+         - {label: "Paginate", name: "paginate", widget: "number", value_type: "int" }
+
+```
+
+And now, if we take a look at how the admin is being shown, we have the following view:
+
+![](/uploads/scr-20240207-ckxu.png)
+
+## A few examples of configuration for some SSGs
+
+### Jekyll
+
+For the `_config.yml`
+
+```yaml
+backend:
+  name: github
+  repo: <your-github-repo> # Replace with your GitHub repository
+  branch: main
+
+media_folder: "assets/images" # Adjust based on your media storage location
+public_folder: "/images" # URL path for accessing media
+
+collections:
+  - name: "settings"
+    label: "Settings"
+    delete: false # Prevents file deletion from the CMS
+    editor:
+      preview: false
+    files:
+      - label: "General Settings"
+        name: "config"
+        file: "_config.yml" # Adjust the file location based on your SSG and structure
+        fields:
+          - { label: "Title", name: "title", widget: "string" }
+          - { label: "Email", name: "email", widget: "string" }
+          - { label: "Description", name: "description", widget: "text" }
+          - { label: "Base URL", name: "baseurl", widget: "string" }
+          - { label: "URL", name: "url", widget: "string" }
+          - { label: "Twitter Username", name: "twitter_username", widget: "string" }
+          - { label: "GitHub Username", name: "github_username", widget: "string" }
+          - { label: "LinkedIn Username", name: "linkedin_username", widget: "string" }
+          - { label: "Instagram Username", name: "instagram_username", widget: "string" }
+          - { label: "Disqus Shortname", name: "disqus_shortname", widget: "string" }
+          - { label: "Show Excerpts", name: "show_excerpts", widget: "boolean", default: true }
+          - { label: "Theme", name: "theme", widget: "string" }
+          - { label: "Minima Skin", name: "minima_skin", widget: "string", default: "dark" }
+          - { label: "Date Format", name: "date_format", widget: "string" }
+        fields:
+          - { label: "Plugins", name: "plugins", widget: "list", default: ["jekyll-redirect-from", "jekyll-feed"] }
+
+```
+
+### Hugo
+
+For the `hugo.toml`, right after you create the site:
+
+```yaml
+backend:
+  name: github
+  repo: <your-github-repo> # Replace with your GitHub repository name
+  branch: main
+
+media_folder: "static/img" # Adjust based on your media storage location
+public_folder: "/img" # URL path for accessing media
+
+collections:
+  - name: "config"
+    label: "Site Configuration"
+    delete: false # Prevents file deletion from the CMS
+    editor:
+      preview: false
+    files:
+      - label: "General Settings"
+        name: "config"
+        file: "hugo.toml" # Adjust the file location based on your Hugo structure
+        fields:
+          - { label: "Base URL", name: "baseURL", widget: "string" }
+          - { label: "Language Code", name: "languageCode", widget: "string" }
+          - { label: "Title", name: "title", widget: "string" }
+
+```
+
+I can provide other examples, depending on what you request.
+
+For today, that's it. I hope this post was enough to cover some of your doubts. Please let me know if you have any questions!
